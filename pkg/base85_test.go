@@ -6,11 +6,6 @@ import (
 
 func TestEncode(t *testing.T) {
 	base := NewCoder()
-	//	res1 := base.Encode([]rune("Donec nec euismod orci"))
-
-	/*if res1 != "6uQsS@j#Z#@j#?*Ble-0A0>f2@qboC" {*/
-	//t.Errorf("want %q; got %q", "6uQsS@j#Z#@j#?*Ble-0A0>f2@qboC", res1)
-	/*}*/
 
 	tests := []struct {
 		name  string
