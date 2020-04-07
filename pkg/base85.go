@@ -3,12 +3,12 @@ package base85
 type Base85 struct {
 }
 
-func New() *Base85 {
+func NewCoder() *Base85 {
 	return &Base85{}
 }
 
-func (b *Base85) Encode(text string) string {
-	source := []rune(text)
+func (b *Base85) Encode(text []rune) string {
+	source := text
 	s := ""
 
 	for len(source) > 0 {
@@ -23,8 +23,8 @@ func (b *Base85) Encode(text string) string {
 	return s
 }
 
-func (b *Base85) Decode(text string) string {
-	source := []rune(text)
+func (b *Base85) Decode(text []rune) string {
+	source := text
 	s := ""
 
 	for len(source) > 0 {
