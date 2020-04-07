@@ -8,30 +8,27 @@ func NewCoder() *Base85 {
 }
 
 func (b *Base85) Encode(text []rune) string {
-	source := text
 	s := ""
 
-	for len(source) > 0 {
-		if len(source) < 4 {
-			for i := len(source); i < 4; i++ {
-				source = append(source, 0)
+	for len(text) > 0 {
+		if len(text) < 4 {
+			for i := len(text); i < 4; i++ {
+				text = append(text, 0)
 			}
 		}
-		s += b.encodeChunk(source[:4])
-		source = source[4:]
+		s += b.encodeChunk(text[:4])
+		text = text[4:]
 	}
 	return s
 }
 
 func (b *Base85) Decode(text []rune) string {
-	source := text
 	s := ""
 
-	for len(source) > 0 {
-		s += b.decodeChunk(source[:5])
-		source = source[5:]
+	for len(text) > 0 {
+		s += b.decodeChunk(text[:5])
+		text = text[5:]
 	}
-	//fmt.Printf("%s\n", s)
 	return s
 }
 
